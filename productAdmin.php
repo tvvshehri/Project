@@ -1,3 +1,15 @@
+<?php
+
+
+$connection = new mysqli("localhost" , "root", "", "estore") or die (mysqli_error($connection));
+
+$sql = "SELECT * FROM product";
+
+$data = $connection->query($sql);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,47 +58,18 @@
                 </tr>
             </thead>
             <tbody>
+                <?php while($product = $data->fetch_assoc()){ ?>
                 <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
+                    <td><?php echo $product['Brand'] ?></td>
+                    <td><?php echo $product['Description'] ?></td>
+                    <td><?php echo $product['Price'] ?></td>
+                    <td><?php echo $product['Image'] ?></td>
                     <td>
-                        <a href="delete.php">Delete</a>
-                        <a href="update.php"> | Update</a>
+                        <a href="delete.php?delete=<?php echo $product['Id']?>">Delete</a>
+                        <a href="update.php?Id=<?php echo $product['Id'] ?>"> | Update</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>
-                        <a href="delete.php">Delete</a>
-                        <a href="update.php"> | Update</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>
-                        <a href="delete.php">Delete</a>
-                        <a href="update.php"> | Update</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>
-                        <a href="delete.php">Delete</a>
-                        <a href="update.php"> | Update</a>
-                    </td>
-                </tr>
-                    
+                <?php } ?>
             </tbody>
         </table>
     </div>

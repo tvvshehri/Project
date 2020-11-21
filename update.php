@@ -1,3 +1,45 @@
+<?php 
+
+
+$connection = new mysqli('localhost' , 'root', "", 'estore') or die (mysqli_error($connection));
+
+// Get 
+if(isset($_GET['Id'])){
+  $id = $_GET['Id'];
+
+  $sql = "SELECT * FROM product WHERE Id = $id";
+  $data = $connection->query($sql);
+  $product = $data->fetch_assoc();
+}
+
+
+// update statement
+if(isset($_POST['update'])){
+  $id = $_POST['Id'];
+  $brand = $_POST['brand'];
+  $description = $_POST['description'];
+  $price = $_POST['price'];
+  $image = null;
+  $valid = false;
+  if(isset($_FILES['image'])){
+    $image = $_FILES['image']['name'];
+    $target = "./images/".basename($_FILES['image']['name']);
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+      $valid = true;
+    }
+    else{
+      $valid = false;
+    }
+  }
+  $sql = "UPDATE product SET Brand = '$brand', Description = '$description', Price = '$price', Image = '$image' WHERE Id = '$id'";
+  $output = $connection->query($sql) or die(mysqli_error($connection));
+  header("Location: http://localhost/project");
+  exit();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,24 +76,29 @@
       <!--End of Header-->
       <!-- Form -->
       <div class="container">
-        <form>
+        <form method="POST" action="update.php" enctype="multipart/form-data">
+        <input type="hidden" name="Id" value="<?php echo $product['Id'] ?>">
             <div class="form-group">
               <label for="brand">Brand</label>
-              <input type="text" class="form-control" id="brand" value="">
+              <input name="brand" type="text" class="form-control" id="brand" 
+                value="<?php echo $product['Brand'] ?>">
             </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <input type="text" class="form-control" id="description">
+              <input name="description" type="text" class="form-control" id="description"
+                value="<?php echo $product['Description'] ?>">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="text" class="form-control" id="price">
+                <input name="price" type="number" class="form-control" id="price"
+                  value = "<?php echo $product['Price'] ?>">
               </div>
               <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" class="form-control" id="image">
+                <input name="image" type="file" class="form-control" id="image"
+                  value = "<?php echo $product['Image'] ?>">
               </div>
-            <button type="submit" name="update" class="btn btn-primary">Edit</button>
+            <button type="submit" name="update" onclick="alert('Updated Successfully ..');" class="btn btn-primary">Add New</button>
           </form>
       </div>
       <!--End of Form-->
