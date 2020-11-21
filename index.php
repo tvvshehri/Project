@@ -1,5 +1,11 @@
 <?php
 
+$connection = new mysqli("localhost" , "root", "", "estore") or die (mysqli_error($connection));
+
+$sql = "SELECT * FROM product";
+
+$data = $connection->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +19,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">e-Store</a>
+        <a class="navbar-brand" href="index.php">e-Store</a>
        
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
@@ -21,7 +27,7 @@
               <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="productAdmin.html">Admin</a>
+              <a class="nav-link" href="productAdmin.php">Admin</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>

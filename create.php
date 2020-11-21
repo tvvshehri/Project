@@ -1,3 +1,22 @@
+<?php
+
+$connection = new mysqli("localhost" , "root", "", "estore") or die (mysqli_error($connection));
+
+if(isset($_POST["submit"])){
+  $brand = $_POST["brand"];
+  $description = $_POST["description"];
+  $price = $_POST["price"];
+  $image = null;
+  if(isset($_FILES["image"])){
+    $image = $_FILES["image"]["name"];
+  }
+  $sql = "INSERT INTO product (Brand, Description, Price, Image) VALUES ($brand, $description, $price,$image)";
+  $connection->query($sql) or die(mysqli_error($connection));
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +29,12 @@
 <body>
      <!-- Navigation Bar -->
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">e-Store</a>
+        <a class="navbar-brand" href="index.php">e-Store</a>
        
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+              <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Admin</a>

@@ -10,12 +10,12 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">e-Store</a>
+        <a class="navbar-brand" href="index.php">e-Store</a>
        
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home <span class="sr-only"></span></a>
+              <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Admin</a>
@@ -30,7 +30,7 @@
       <!-- Header -->
       <div class="container">
           <h1>Admin Page</h1>
-          <a href="create.html" class="btn btn-success">Add New</a>
+          <a href="create.php" class="btn btn-success">Add New</a>
       </div>
       <!--End of Header-->
     <!-- table -->
@@ -53,7 +53,7 @@
                     <td>test</td>
                     <td>
                         <a href="delete.php">Delete</a>
-                        <a href="update.html"> | Update</a>
+                        <a href="update.php"> | Update</a>
                     </td>
                 </tr>
                 <tr>
