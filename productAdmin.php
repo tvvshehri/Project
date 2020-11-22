@@ -30,10 +30,10 @@ $data = $connection->query($sql);
               <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
+              <a class="nav-link" href="productAdmin.php">Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="login.php">Login</a>
             </li>
         </div>
       </nav>

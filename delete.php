@@ -9,7 +9,7 @@ if(isset($_GET['delete'])){
 
     $connection->query($sql) or die(mysqli_error($connection));
 
-    header("Location: http://localhost/project/");
+    header("Location: http://localhost/project/productAdmin.php");
     exit();
 }
 

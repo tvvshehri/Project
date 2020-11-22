@@ -50,8 +50,8 @@ if(isset($_POST['update'])){
     <title>Update Product</title>
 </head>
 <body>
-     <!-- Navigation Bar -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.php">e-Store</a>
        
         <div class="collapse navbar-collapse">
@@ -60,10 +60,10 @@ if(isset($_POST['update'])){
               <a class="nav-link" href="index.php">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Admin</a>
+              <a class="nav-link" href="productAdmin.php">Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="login.php">Login</a>
             </li>
         </div>
       </nav>

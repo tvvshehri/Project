@@ -31,7 +31,7 @@ $data = $connection->query($sql);
               <a class="nav-link" href="productAdmin.php">Admin</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="login.php">Login</a>
             </li>
         </div>
       </nav>
