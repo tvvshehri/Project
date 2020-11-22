@@ -98,7 +98,7 @@ if(isset($_POST['update'])){
                 <input name="image" type="file" class="form-control" id="image"
                   value = "<?php echo $product['Image'] ?>">
               </div>
-            <button type="submit" name="update" onclick="alert('Updated Successfully ..');" class="btn btn-primary">Add New</button>
+            <button type="submit" name="update" onclick="alert('Updated Successfully ..');" class="btn btn-primary">Update</button>
           </form>
       </div>
       <!--End of Form-->
